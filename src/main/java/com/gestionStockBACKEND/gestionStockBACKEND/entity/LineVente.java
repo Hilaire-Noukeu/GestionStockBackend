@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 import java.math.BigDecimal;
 
 @Entity
-@Builder
+
 @EqualsAndHashCode(callSuper = true)
 public class LineVente extends AbstractEntity{
 

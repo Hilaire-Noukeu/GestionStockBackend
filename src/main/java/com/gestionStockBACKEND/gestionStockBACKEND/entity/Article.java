@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Builder
 @EqualsAndHashCode(callSuper = true)
 public class Article  extends AbstractEntity{
     private String code;

@@ -1,4 +1,8 @@
 package com.gestionStockBACKEND.gestionStockBACKEND.repository;
 
-public interface UserRpository {
+
+import com.gestionStockBACKEND.gestionStockBACKEND.entity.Users;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRpository extends JpaRepository<Users, Integer> {
 }
