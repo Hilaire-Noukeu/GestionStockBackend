@@ -2,11 +2,13 @@ package com.gestionStockBACKEND.gestionStockBACKEND.service.Impl;
 
 import com.gestionStockBACKEND.gestionStockBACKEND.dto.ArticleDto;
 import com.gestionStockBACKEND.gestionStockBACKEND.entity.Article;
+import com.gestionStockBACKEND.gestionStockBACKEND.entity.Category;
 import com.gestionStockBACKEND.gestionStockBACKEND.exception.EntityNotFoundException;
 import com.gestionStockBACKEND.gestionStockBACKEND.exception.ErrorCodes;
 import com.gestionStockBACKEND.gestionStockBACKEND.exception.InvalidEntityException;
 import com.gestionStockBACKEND.gestionStockBACKEND.exception.InvalidOperationException;
 import com.gestionStockBACKEND.gestionStockBACKEND.repository.ArticleRepository;
+import com.gestionStockBACKEND.gestionStockBACKEND.repository.CategoryRepository;
 import com.gestionStockBACKEND.gestionStockBACKEND.repository.LigneVenteRepository;
 import com.gestionStockBACKEND.gestionStockBACKEND.service.ArticleSerice;
 import com.gestionStockBACKEND.gestionStockBACKEND.validator.ArticleValidator;
@@ -21,18 +23,24 @@ public class ArticleServiceImp implements ArticleSerice {
 
     private ArticleRepository articleRepository;
     private LigneVenteRepository lineVenteRepository;
+    private CategoryRepository categoryRepository;
 
     @Autowired
-    public ArticleServiceImp(ArticleRepository articleRepository, LigneVenteRepository lineVenteRepository){
+    public ArticleServiceImp(ArticleRepository articleRepository, LigneVenteRepository lineVenteRepository, CategoryRepository categoryRepository){
         this.articleRepository=articleRepository;
         this.lineVenteRepository=lineVenteRepository;
+        this.categoryRepository=categoryRepository;
     }
     @Override
     public ArticleDto save(ArticleDto articleDto) {
         List<String> errors= ArticleValidator.validate(articleDto);
         if (!errors.isEmpty()){
-            throw new InvalidEntityException("Article invalide", ErrorCodes.ARTICLE_NOT_VALID,errors)
+            throw new InvalidEntityException("Article invalide", ErrorCodes.ARTICLE_NOT_VALID,errors);
         }
+        Category category=categoryRepository
+                .findById(articleDto.getCategory().getId())
+                .orElseThrow(()-> new EntityNotFoundException("La categorie selectionnee n'existe pas",ErrorCodes.CATEGORY_NOT_FOUND));
+
         return ArticleDto
                 .fromEntity(articleRepository
                 .save(ArticleDto.toEntity(articleDto)));
