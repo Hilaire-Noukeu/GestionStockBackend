@@ -10,12 +10,14 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
     @Id
     @GeneratedValue
     private Long id;
     private String nomRole;
-   // @OneToMany(mappedBy = "role")
-   // private List<User> users;
+    @OneToMany(mappedBy = "role")
+    private List<Users> users;
 
 }

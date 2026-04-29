@@ -18,11 +18,11 @@ public class Users extends AbstractEntity{
     private String email;
     private String password;
 
-    //@ManyToOne
-    //@JoinColumn(name = "role_id")
-    //private Role role;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
-   // @OneToMany(mappedBy = "user")
-   // private List<Vente> ventes;
+   @OneToMany(mappedBy = "user")
+    private List<Vente> ventes;
 
 }

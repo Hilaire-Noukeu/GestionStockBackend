@@ -12,6 +12,10 @@ import java.util.List;
 @Entity
 @Data
 @Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Vente extends AbstractEntity{
 
@@ -20,8 +24,8 @@ public class Vente extends AbstractEntity{
 
     @OneToMany(mappedBy = "vente")
     private List<LineVente> lineVentes;
-    //@ManyToOne
-    //@JoinColumn(name = "user_id")
-    //private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 
 }

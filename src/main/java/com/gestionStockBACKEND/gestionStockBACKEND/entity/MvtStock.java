@@ -8,6 +8,10 @@ import lombok.*;
 @Entity
 @Data
 @Builder
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class MvtStock extends AbstractEntity{
     private TypeMvt type;
