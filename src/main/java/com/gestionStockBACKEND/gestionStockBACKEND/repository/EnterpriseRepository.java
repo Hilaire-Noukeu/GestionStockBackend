@@ -1,4 +1,7 @@
 package com.gestionStockBACKEND.gestionStockBACKEND.repository;
 
-public interface EnterpriseRepository {
+import com.gestionStockBACKEND.gestionStockBACKEND.entity.Enterprise;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EnterpriseRepository extends JpaRepository<Enterprise, Long> {
 }

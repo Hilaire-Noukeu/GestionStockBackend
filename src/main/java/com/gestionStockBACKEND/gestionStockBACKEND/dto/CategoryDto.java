@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryDto {
-    private Integer id;
+    private Long id;
     private String nameCategory;
     private List<ArticleDto> articles;
 

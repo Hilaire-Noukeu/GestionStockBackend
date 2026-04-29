@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LineVenteDto {
-    private Integer id;
+    private Long id;
     private BigDecimal quantite;
     private ArticleDto article;
     private VenteDto vente;

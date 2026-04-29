@@ -15,6 +15,7 @@ import java.util.List;
 public class Article  extends AbstractEntity{
     private String code;
     private String nomArticle;
+    private Integer quantite;
     private BigDecimal prixUnitaireHt;
 
     @ManyToOne

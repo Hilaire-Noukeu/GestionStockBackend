@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MvtStockDto {
-    private Integer id;
+    private Long id;
     private TypeMvt type;
     private ArticleDto article;
 

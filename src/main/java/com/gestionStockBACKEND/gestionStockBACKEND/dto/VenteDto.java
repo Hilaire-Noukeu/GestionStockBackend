@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class VenteDto {
 
-    private Integer id;
+    private Long id;
     private BigDecimal quantiteTotale;
     private String commentaire;
     private List<LineVenteDto> lineVentes;

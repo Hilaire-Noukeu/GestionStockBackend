@@ -12,9 +12,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ArticleDto {
-    private Integer id;
+    private Long id;
     private String code;
     private String nomArticle;
+    private Integer quantite;
     private BigDecimal prixUnitaireHt;
     private CategoryDto category;
     private List<MvtStockDto> mvtStocks;
@@ -29,6 +30,7 @@ public class ArticleDto {
                 .id(article.getId())
                 .code(article.getCode())
                 .nomArticle(article.getNomArticle())
+                .quantite(article.getQuantite())
                 .prixUnitaireHt(article.getPrixUnitaireHt())
                 .category(CategoryDto.fromEntity(article.getCategory()))
                 .build();
@@ -43,6 +45,7 @@ public class ArticleDto {
         article.setId(articleDto.getId());
         article.setCode(articleDto.getCode());
         article.setNomArticle(articleDto.getNomArticle());
+        article.setQuantite(articleDto.getQuantite());
         article.setPrixUnitaireHt(articleDto.getPrixUnitaireHt());
         article.setCategory(CategoryDto.toEntity(articleDto.getCategory()));
         return article;

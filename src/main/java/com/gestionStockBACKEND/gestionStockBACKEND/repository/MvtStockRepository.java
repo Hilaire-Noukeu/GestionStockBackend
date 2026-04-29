@@ -1,4 +1,7 @@
 package com.gestionStockBACKEND.gestionStockBACKEND.repository;
 
-public interface MvtStockRepository {
+import com.gestionStockBACKEND.gestionStockBACKEND.entity.MvtStock;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MvtStockRepository extends JpaRepository<MvtStock, Long> {
 }
